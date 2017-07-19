@@ -1,7 +1,7 @@
 {
   "name": "bui-weex-template",
   "description": "bui-weex template project",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "main": "",
   "keywords": [
     "weex",
@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/bingo-oss/bui-weex-template",
   "scripts": {
+    "start": "npm run serve & npm run dev",
     "dev": "webpack --watch",
     "serve": "node build/init.js && serve -p 8686",
     "debug": "weex-devtool",
@@ -34,7 +35,7 @@
     "babel-core": "^6.20.0",
     "babel-loader": "^6.2.9",
     "babel-preset-es2015": "^6.18.0",
-    "bui-weex": "^0.1.2",
+    "bui-weex": "^0.1.5",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.1",
     "ip": "^1.1.4",
