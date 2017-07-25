@@ -26,6 +26,7 @@
     "publish": "node build/publish.js"
   },
   "dependencies": {
+    "glob": "^7.1.2",
     "vue": "^2.1.8",
     "vue-router": "^2.1.1",
     "vuex": "^2.1.1",
