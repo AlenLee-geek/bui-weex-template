@@ -16,12 +16,17 @@
     "url": "https://github.com/bingo-oss/bui-weex-template/issues"
   },
   "homepage": "https://github.com/bingo-oss/bui-weex-template",
+  "ports":{
+    "serverPort":8686,
+    "debugPort":8088
+  },
   "scripts": {
+    "start": "npm run serve & npm run dev",
     "dev": "webpack --watch",
-    "serve": "node build/init.js && serve -p 8686",
-    "debug": "weex-devtool",
-    "build": "webpack",
-    "publish": "node build/publish.js"
+    "serve": "node build/init.js && serve -p $npm_package_ports_serverPort",
+    "debug": "weex-devtool -p  $npm_package_ports_debugPort",
+    "publish": "node build/publish.js",
+    "build": "webpack"
   },
   "dependencies": {
     "glob": "^7.1.2",
