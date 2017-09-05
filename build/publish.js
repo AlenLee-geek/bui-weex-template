@@ -1,52 +1,41 @@
-var fs = require('fs'), stat = fs.stat;
+var fs = require('fs');
+var archiver = require('archiver');
 
-//拷贝文件
-var copy = function (src, dst) {
-    fs.readdir(src, function (err, paths) {
-        if (err) {throw err;}
-
-        paths.forEach(function (path) {
-            var _src = src + '/' + path,
-                _dst = dst + '/' + path,
-                readable, writable;
-            stat(_src, function (err, st) {
-                if (err) {
-                    throw err;
-                }
-                // 判断是否为文件
-                if (st.isFile()) {
-                    //*.web.js不拷贝
-                    if(path.indexOf("web.js")<0){
-                        readable = fs.createReadStream(_src);
-                        writable = fs.createWriteStream(_dst);
-                        readable.pipe(writable);
-                    }
-                }
-                else if (st.isDirectory()) {
-                    exists(_src, _dst, copy);
-                }
-            });
-        });
-    });
-};
-
-//是否存在文件/文件夹
-var exists = function (src, dst, callback) {
-    fs.exists(dst, function (exists) {
-        if (exists) {
-            callback(src, dst);
+//拷贝任务
+var copyTask = function (src, dst) {
+    if(!fs.existsSync(src)){
+        console.log('目标文件夹不存在!')
+        return false;
+    }
+    var paths = fs.readdirSync(src);
+    paths.forEach(function (path) {
+        var _src = src + '/' + path,
+            _dst = dst + '/' + path,
+            readable, writable;
+        var st = fs.statSync(_src);
+        console.log(_dst);
+        // 判断是否为文件
+        if (st.isFile()) {
+            //*.web.js不拷贝
+            if (path.indexOf("web.js") < 0) {
+                readable = fs.createReadStream(_src);
+                writable = fs.createWriteStream(_dst);
+                readable.pipe(writable);
+            }
         }
-        else {
-            fs.mkdir(dst, function () {
-                callback(src, dst);
-            });
+        else if (st.isDirectory()) {
+            if (!fs.existsSync(_dst)) {
+                fs.mkdirSync(_dst);
+            }
+           return  copyTask(_src, _dst);
         }
     });
+    return true;
 };
 
-//删除文件夹
-var rmdirSync = (function () {
-    function iterator(url, dirs) {
+//删除任务
+var removeTask = function (dir, cb) {
+    var iterator = function (url, dirs) {
         var stat = fs.statSync(url);
         if (stat.isDirectory()) {
             dirs.unshift(url);//收集目录
@@ -56,39 +45,59 @@ var rmdirSync = (function () {
         }
     }
 
-    function inner(path, dirs) {
+    var inner = function (path, dirs) {
         var arr = fs.readdirSync(path);
         for (var i = 0, el; el = arr[i++];) {
             iterator(path + "/" + el, dirs);
         }
     }
 
-    return function (dir, cb) {
-        cb = cb || function () {
-            };
-        var dirs = [];
-
-        try {
-            iterator(dir, dirs);
-            for (var i = 0, el; el = dirs[i++];) {
-                fs.rmdirSync(el);
-            }
-            cb()
-        } catch (e) {
-            //如果文件或目录本来就不存在，fs.statSync会报错，当成没有异常发生
-            e.code === "ENOENT" ? cb() : cb(e);
+    cb = cb || function () {
+        };
+    var dirs = [];
+    try {
+        iterator(dir, dirs);
+        for (var i = 0, el; el = dirs[i++];) {
+            fs.rmdirSync(el);
         }
+        cb()
+    } catch (e) {
+        //如果文件或目录本来就不存在，fs.statSync会报错，当成没有异常发生
+        e.code === "ENOENT" ? cb() : cb(e);
     }
-})();
+}
+
+//压缩任务
+var zipTask = function () {
+    var output = fs.createWriteStream(zipFile);
+    var archive = archiver('zip', {zlib: {level: 9}});
+
+    output.on('close', function () {
+        console.log('压缩完成!');
+    });
+    archive.on('error', function (err) {
+        console.error('压缩失败!');
+        console.error(err);
+        removeTask(zipFile);
+    });
+    archive.pipe(output);
+    archive.directory(dst, false);
+    archive.finalize();
+};
 
 
 var src = "./dist";
 var dst = "./publish";
+var zipFile = './publish.zip';
 
-//先删除publish目录，之后在进行拷贝
-rmdirSync(dst, function (err) {
-    exists(src, dst, function () {
-        copy(src, dst);
-    });
+//先删除publish目录，之后进行拷贝，最后进行压缩
+removeTask(dst, () => {
+    if (!fs.existsSync(dst)) {
+        fs.mkdirSync(dst);
+    }
+    console.log('开始拷贝文件......');
+    var result = copyTask(src, dst);
+    if(!result) return;
+    console.log('正在压缩文件......');
+    zipTask();
 });
-
