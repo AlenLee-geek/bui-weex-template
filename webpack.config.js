@@ -54,14 +54,9 @@ function getBaseConfig() {
     }
 }
 
-//*.web.js
-var webConfig = getBaseConfig();
-webConfig.output.filename = '[name].web.js';
-webConfig.module.loaders[1].loaders.push('vue');
-
 //*.weex.js
 var weexConfig = getBaseConfig();
 weexConfig.output.filename = '[name].weex.js';
 weexConfig.module.loaders[1].loaders.push('weex');
 
-module.exports = [webConfig, weexConfig];
+module.exports = [weexConfig];
