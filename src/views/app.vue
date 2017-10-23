@@ -16,18 +16,12 @@
     var globalEvent = weex.requireModule('globalEvent');
     module.exports = {
         data: function () {
-            return 
-
-            }
-        },
-        methods: {
+            return
 
         },
-        components:{
-
-        },
-        mounted: function () {
-            globalEvent.addEventListener("androidback",e=>{
+        mounted()
+        {
+            globalEvent.addEventListener("androidback", e => {
                 buiweex.pop();
             });
         }
