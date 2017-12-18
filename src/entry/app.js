@@ -1,7 +1,7 @@
 import App from '../views/app.vue'
-import mixins from '../js/mixins.js'
+import buiweex from 'bui-weex'
 
-Vue.mixin(mixins);
+Vue.use(buiweex);
 
 App.el = '#root'
 

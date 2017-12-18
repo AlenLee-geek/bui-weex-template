@@ -46,6 +46,9 @@ function getBaseConfig() {
                 }, {
                     test: /\.scss$/,
                     loader: 'style!css!sass'
+                },{
+                    test: /\.json$/,
+                    loader: 'json-loader'
                 }
             ]
         },
@@ -61,5 +64,6 @@ webConfig.module.loaders[1].loaders.push('vue');
 var weexConfig = getBaseConfig();
 weexConfig.output.filename = '[name].weex.js';
 weexConfig.module.loaders[1].loaders.push('weex');
-
-module.exports = [webConfig, weexConfig];
+//按需增加webConfig
+// module.exports = [webConfig,weexConfig];
+module.exports = [weexConfig];

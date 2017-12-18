@@ -11,18 +11,15 @@
 
 <script>
     //引入bui-weex模块
-    //import buiweex from 'bui-weex'
-    var buiweex = require("bui-weex");
     var globalEvent = weex.requireModule('globalEvent');
     module.exports = {
-        data: function () {
-            return
-
+        data () {
+            return {}
         },
         mounted()
         {
             globalEvent.addEventListener("androidback", e => {
-                buiweex.pop();
+                this.$pop();
             });
         }
     }
