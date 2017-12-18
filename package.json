@@ -1,7 +1,7 @@
 {
   "name": "bui-weex-template",
   "description": "bui-weex template project",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "main": "",
   "keywords": [
     "weex",
@@ -25,10 +25,10 @@
     "dev": "webpack --watch",
     "serve": "node build/init.js && serve -p $npm_package_ports_serverPort",
     "debug": "weex-devtool -p  $npm_package_ports_debugPort",
-    "publish": "node build/publish.js",
-    "build": "webpack"
+    "publish": "node build/publish.js"
   },
   "dependencies": {
+    "archiver": "^2.1.0",
     "bui-weex": "^0.2.0",
     "glob": "^7.1.2",
     "punycode": "^2.1.0",

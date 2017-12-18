@@ -10,7 +10,6 @@
 <style lang="sass" src="bui-weex/src/css/buiweex.scss"></style>
 
 <script>
-    //引入bui-weex模块
     var globalEvent = weex.requireModule('globalEvent');
     module.exports = {
         data () {
