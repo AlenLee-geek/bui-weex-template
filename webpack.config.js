@@ -39,7 +39,6 @@ function getBaseConfig() {
                 {
                     test: /\.js$/,
                     loader: 'babel',
-                    exclude: /node_modules/
                 }, {
                     test: /\.vue(\?[^?]+)?$/,
                     loaders: []
