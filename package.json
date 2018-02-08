@@ -1,7 +1,7 @@
 {
   "name": "bui-weex-template",
   "description": "bui-weex template project",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "",
   "keywords": [
     "weex",
@@ -24,17 +24,17 @@
     "start": "npm run serve & npm run dev",
     "dev": "webpack --watch",
     "serve": "node build/init.js && serve -p $npm_package_ports_serverPort",
-    "debug": "weex-devtool -p  $npm_package_ports_debugPort",
+    "debug": "weex-devtool",
     "publish": "node build/publish.js"
   },
   "dependencies": {
     "archiver": "^2.1.0",
-    "bui-weex": "^0.2.0",
+    "bui-weex": "^0.2.2",
     "glob": "^7.1.2",
     "punycode": "^2.1.0",
-    "vue": "^2.4.2",
+    "vue": "^2.5.13",
     "vue-router": "^2.1.1",
-    "vue-template-compiler": "^2.4.2",
+    "vue-template-compiler": "^2.5.13",
     "vuex": "^2.1.1",
     "vuex-router-sync": "^4.0.1",
     "weex-vue-render": "^0.11.2"
@@ -46,10 +46,10 @@
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.1",
     "ip": "^1.1.4",
+    "json-loader": "^0.5.7",
     "node-sass": "^4.5.2",
     "sass-loader": "^6.0.3",
     "serve": "^1.4.0",
-    "json-loader": "^0.5.7",
     "vue-loader": "^10.0.2",
     "webpack": "^1.14.0",
     "weex-devtool": "^0.2.64",
