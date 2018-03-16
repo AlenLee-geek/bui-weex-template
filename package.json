@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "archiver": "^2.1.0",
-    "bui-weex": "^0.2.2",
+    "bui-weex": "^0.2.4",
     "glob": "^7.1.2",
     "punycode": "^2.1.0",
     "vue": "^2.5.13",
