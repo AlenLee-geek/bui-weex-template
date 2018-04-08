@@ -34,6 +34,14 @@ function getBaseConfig() {
         output: {
             path: 'dist',
         },
+        resolve: {
+            alias : {
+                src : __dirname + '/src',
+                css : __dirname + '/src/css',
+
+            },
+            extensions: ['', '.js', '.vue', '.scss']
+        },
         module: {
             loaders: [
                 {

@@ -2,10 +2,9 @@
 /dist
 /config.js
 /.idea
-/.sass-cache
-/src/css/.sass-cache
-/src/css/*.css
-/src/css/*.css.map
+*.sass-cache
+*.css
+*.css.map
 *log
 **/.DS_Store
 package-lock.json
