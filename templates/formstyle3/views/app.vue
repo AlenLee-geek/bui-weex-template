@@ -6,7 +6,7 @@
                 <bui-cell :cellStyle="small">
                     <div slot="title" class="flex-row column-center-top">
                         <bui-icon color="#ff9236" name="ion-ios-information"></bui-icon>
-                        <text class="form-text-normal ml30">申请前, 请先了解申请须知</text>
+                        <text class="text-normal ml30">申请前, 请先了解申请须知</text>
                     </div>
                     <div slot="action" class="form-content">
                         <bui-icon color="#cdcdcd"  name="ion-ios-arrow-right"></bui-icon>

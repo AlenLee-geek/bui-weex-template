@@ -24,32 +24,62 @@
   font-size: 24px;
   color: #999999;
 }
-.form-text-normal{
+
+.text-normal{
   font-size: 32px;
   color: #464c5b;
 }
 
-.form-text-white{
+
+.text-white{
   font-size: 32px;
   color: #ffffff
 }
-.form-text-red{
+
+
+.text-red{
   color: #fa3300;
   font-size: 32px;
 }
 
-.form-text-gray{
+
+.text-gray{
   font-size: 32px;
   color: #666666;
 }
-.form-text-grayer{
+
+.text-grayer{
   font-size: 32px;
+  color: #999999;
+}
+
+
+.text-orange{
+  color: orange;
+  font-size: 25px;
+}
+.text-orange-large{
+  color: orange;
+  font-size: 36px;
+}
+.text-red-large{
+}
+.text-blue{
+  color: dodgerblue;
+}
+.text-green{
+  font-size: 28px;
+  color: limegreen;
+}
+.text-gray-small{
+  font-size: 25px;
   color: #999999;
 }
 .form-text-small{
   font-size: 25px;
   color: #999999;
 }
+
 .form-input-text{
   flex: 1;
   height: 50px;
@@ -91,6 +121,13 @@
 }
 
 
+.circle-box{
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
 .width230{
   width: 230px;
 }
@@ -98,12 +135,27 @@
   width: 750px;
 }
 
+.ml15{
+  margin-left: 15px;
+}
 .ml30{
   margin-left: 30px;
 }
 .mt10{
   margin-top: 10px;
 }
+.mt15{
+  margin-top: 15px;
+}
 .mt25{
   margin-top: 25px;
+}
+.mr25{
+  margin-right: 25px;
+}
+
+
+.white{
+    color: #ffffff;
+    font-size: 40px;
 }

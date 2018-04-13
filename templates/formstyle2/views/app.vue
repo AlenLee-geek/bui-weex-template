@@ -6,7 +6,7 @@
                 <bui-cell :cellStyle="small" v-if="show">
                     <div slot="title" class="flex-row column-center-top">
                         <bui-icon color="#1daafc" name="ion-ios-information"></bui-icon>
-                        <text class="form-text-normal ml30">粤A****9已被人申请,暂不能申请该车</text>
+                        <text class="text-normal ml30">粤A****9已被人申请,暂不能申请该车</text>
                     </div>
                 </bui-cell>
                 <bui-cell class="mt25">
@@ -25,24 +25,24 @@
                     <div slot="title" class="form-content">
                         <div class="span1" @click="pickDateStart">
                             <text class="form-header-text">用车开始时间</text>
-                            <text class="mt10 form-text-normal">{{start || '点击选择时间'}}</text>
+                            <text class="mt10 text-normal">{{start || '点击选择时间'}}</text>
                         </div>
                         <bui-icon color="#e5e5e5" name="ion-log-in"></bui-icon>
                         <div class="span1 ml30" @click="pickDateEnd">
                             <text class="form-header-text">用车结束时间</text>
-                            <text class="mt10 form-text-normal">{{end || '点击选择时间'}}</text>
+                            <text class="mt10 text-normal">{{end || '点击选择时间'}}</text>
                         </div>
                     </div>
                 </bui-cell>
                 <bui-cell class="mt25" title="随车人数">
                     <div slot="action" class="form-content">
                         <input class="form-input-text ml30 width230" type="number" placeholder="请填写随车人数" />
-                        <text class="ml30 form-text-normal">人</text>
+                        <text class="ml30 text-normal">人</text>
                     </div>
                 </bui-cell>
                 <bui-cell title="随车人">
                     <div slot="action" class="form-content" @click="open1">
-                        <text class="form-text-grayer">{{car}}</text>
+                        <text class="text-grayer">{{car}}</text>
                         <bui-icon class="ml30" color="#1daafc" name="ion-android-person-add"></bui-icon>
                     </div>
                 </bui-cell>

@@ -7,21 +7,21 @@
                 <bui-cell title="品牌种类"
                           @cellClick="open1()">
                     <div slot="action" class="form-content">
-                        <text class="form-text-grayer">{{car}}</text>
+                        <text class="text-grayer">{{car}}</text>
                         <bui-icon color="#cdcdcd"  name="ion-ios-arrow-right"></bui-icon>
                     </div>
                 </bui-cell>
                 <bui-cell>
                     <div slot="title" class="form-content">
                         <text class="form-text">车牌号码</text>
-                        <text class="form-text-gray ml30">广州</text>
+                        <text class="text-gray ml30">广州</text>
                         <bui-icon color="#cdcdcd"  name="ion-ios-arrow-right"></bui-icon>
-                        <text class="form-text-gray">粤A****9</text>
+                        <text class="text-gray">粤A****9</text>
                     </div>
                 </bui-cell>
                 <bui-cell title="区域查询">
                     <div slot="action" class="form-content">
-                        <text class="form-text-grayer">广州</text>
+                        <text class="text-grayer">广州</text>
                         <bui-icon color="#cdcdcd"  name="ion-ios-arrow-right"></bui-icon>
                     </div>
                 </bui-cell>
