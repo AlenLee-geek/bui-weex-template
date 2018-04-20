@@ -10,7 +10,7 @@
                     :selectedBackground="selectedBackground"
                     @change="onItemChange"
                     v-model="currentTab"></bui-tabbar>
-        <slider class="form-box" @change="onSliderChange" :index="currentTab">
+        <slider class="form-box">
             <div class="form-box">
                 <scroller class="form-body width750">
 
@@ -21,8 +21,8 @@
                                 <bui-image v-if="value.img" :src="value.img" width="200px" height="150px"></bui-image>
                             </div>
                             <div class="ml30 flex-column column-center-left span1">
-                                <text>{{value.title}}</text>
-                                <text class="text-gray-small">{{value.desc}}</text>
+                                <text class="text-normal">{{value.title}}</text>
+                                <text class="text-gray-small mt15">{{value.desc}}</text>
                                 <text class="text-gray-small mt15">{{value.dis}}</text>
                             </div>
                         </div>
@@ -57,9 +57,6 @@
                     },
                     {
                         'title': '休闲娱乐'
-                    },
-                    {
-                        'title': '生活服务'
                     },
                     {
                         'title': '酒店'

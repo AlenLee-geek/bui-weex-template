@@ -13,7 +13,7 @@
                 </bui-cell>
                 <bui-cell>
                     <div slot="title" class="form-content">
-                        <text class="form-text">车牌号码</text>
+                        <text class="text-normal">车牌号码</text>
                         <text class="text-gray ml30">广州</text>
                         <bui-icon color="#cdcdcd"  name="ion-ios-arrow-right"></bui-icon>
                         <text class="text-gray">粤A****9</text>
@@ -27,7 +27,7 @@
                 </bui-cell>
                 <bui-cell>
                     <div slot="title" class="form-content">
-                        <text class="form-text">车身架号</text>
+                        <text class="text-normal">车身架号</text>
                         <input class="form-input-text ml30" type="number" placeholder="532434" />
                     </div>
                     <div slot="action" class="form-content">

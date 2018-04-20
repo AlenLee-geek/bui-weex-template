@@ -5,10 +5,10 @@
             <scroller class="form-body width750">
                 <bui-cell :cellStyle="small">
                     <div slot="title" class="flex-column row-center-top">
-                        <text class="">合计收入</text>
+                        <text class="text-normal">合计收入</text>
                         <text class="form-header-text">￥888,000.00</text>
                     </div>
-                    <div class="flex-row" slot="action">
+                    <div class="flex-row column-center-top" slot="action">
                         <bui-icon color="#5da3f6" name="ion-ios-list-outline"></bui-icon>
                         <text class="text-blue ml15">按客单查看</text>
                     </div>
@@ -21,7 +21,7 @@
                             <text v-if="!value.img" class="white">{{value.title | capitalize}}</text>
                         </div>
                         <div class="ml30 flex-column column-center-left span1">
-                            <text>{{value.title}}</text>
+                            <text class="text-normal">{{value.title}}</text>
                             <text class="text-gray-small mt15">{{value.time}}</text>
                         </div>
                         <text class="text-red">{{(value.number-0 >0) ? '+'+value.number : '0.00'}}</text>

@@ -14,44 +14,44 @@
                 </bui-cell>
                 <bui-cell class="mt25">
                     <div slot="title" class="form-content">
-                        <text>身份证号码</text>
+                        <text class="text-normal">身份证号码</text>
                         <input class="form-input-text ml30" type="number" maxlength="16" placeholder="请输入16位身份证号码" />
                     </div>
                 </bui-cell>
                 <bui-cell>
                     <div slot="title" class="form-content">
-                        <text>中文姓</text>
+                        <text class="text-normal">中文姓</text>
                         <input class="form-input-text ml30" type="text" placeholder="请输入, 例如张**" />
                     </div>
                 </bui-cell>
                 <bui-cell>
                     <div slot="title" class="form-content">
-                        <text>拼音</text>
+                        <text class="text-normal">拼音</text>
                         <input class="form-input-text ml30" type="text" placeholder="请输入" />
                     </div>
                 </bui-cell>
                 <bui-cell>
                     <div slot="title" class="form-content">
-                        <text>籍贯</text>
+                        <text class="text-normal">籍贯</text>
                         <input class="form-input-text ml30" type="text" placeholder="请输入" />
                     </div>
                 </bui-cell>
                 <bui-cell>
                     <div slot="title" class="form-content">
-                        <text>联系电话</text>
+                        <text class="text-normal">联系电话</text>
                         <input class="form-input-text ml30" type="tel" placeholder="请输入11位电话号码" />
                     </div>
                 </bui-cell>
                 <div class="form-title"><text class="form-header-text">紧急联系人</text></div>
                 <bui-cell>
                     <div slot="title" class="form-content">
-                        <text>姓名</text>
+                        <text class="text-normal">姓名</text>
                         <input class="form-input-text ml30" type="text" placeholder="请输入姓名" />
                     </div>
                 </bui-cell>
                 <bui-cell>
                     <div slot="title" class="form-content">
-                        <text>联系电话</text>
+                        <text class="text-normal">联系电话</text>
                         <input class="form-input-text ml30" type="tel" placeholder="请输入联系电话" />
                     </div>
                 </bui-cell>

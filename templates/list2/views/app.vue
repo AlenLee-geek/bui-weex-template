@@ -10,7 +10,7 @@
                     :selectedBackground="selectedBackground"
                     @change="onItemChange"
                     v-model="currentTab"></bui-tabbar>
-        <slider class="form-box" @change="onSliderChange" :index="currentTab">
+        <slider class="form-box">
             <div class="form-box">
                 <scroller class="form-body width750">
                     <bui-cell :cellStyle="small">
@@ -26,12 +26,12 @@
                     <bui-cell :cellStyle="larger">
                         <div slot="title" class="flex-row">
                             <text class="text-white">1</text>
-                            <div class="circle-box center ml30" :style="{'background-color': '#ffffff'}">
+                            <div class="circle-box center ml30">
                                 <bui-image :src="'/image/tou.png'" width="90px" height="90px"></bui-image>
                             </div>
                             <div class="ml30 flex-column column-center-left span1">
-                                <text>耳朵难眠</text>
-                                <div class="flex-row center mt10">
+                                <text class="text-normal">耳朵难眠</text>
+                                <div class="flex-row mt10">
                                     <text class="text-orange">67812</text>
                                     <text class="text-gray-small">名</text>
                                 </div>
@@ -52,7 +52,7 @@
                                 <text v-if="!value.img" class="white">{{value.title | capitalize}}</text>
                             </div>
                             <div class="ml30 flex-column column-center-left span1">
-                                <text>{{value.title}}</text>
+                                <text class="text-normal">{{value.title}}</text>
                             </div>
                         </div>
                         <div class="action">

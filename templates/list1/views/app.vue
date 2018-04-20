@@ -11,11 +11,11 @@
                             <text v-if="!value.img" class="white">{{value.title | capitalize}}</text>
                         </div>
                         <div class="ml30 flex-column column-center-left span1">
-                            <text>{{value.title}}</text>
-                            <text class="form-text-small mt15">{{value.desc}}</text>
+                            <text class="text-normal">{{value.title}}</text>
+                            <text class="text-gray-small mt15">{{value.desc}}</text>
                         </div>
                         <div class="mr25">
-                            <text class="form-text-small">{{value.time}}</text>
+                            <text class="text-gray-small">{{value.time}}</text>
                         </div>
                     </div>
                 </bui-swipe-cell>
@@ -71,10 +71,6 @@
                     {
                         'title': '消息',
                         'icon': "ion-chatbubble-working"
-                    },
-                    {
-                        'title': '通讯录',
-                        'icon': "ion-ios-book"
                     },
                     {
                         'title': '我的',

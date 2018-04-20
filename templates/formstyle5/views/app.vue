@@ -15,24 +15,129 @@
                     :selectedBackground="selectedBackground"
                     @change="onItemChange"
                     v-model="currentTab"></bui-tabbar>
-        <slider class="form-box" @change="onSliderChange" :index="currentTab">
+        <slider class="flex-row span1" @change="onSliderChange" :index="currentTab">
+
             <div class="form-box">
                 <scroller class="form-body width750">
                     <bui-cell class="mt25">
                         <div slot="title" class="form-content">
-                            <text>姓名</text>
+                            <text class="text-normal">姓名</text>
                             <input class="form-input-text ml30" type="text" maxlength="16" placeholder="请输入姓名" />
                         </div>
                     </bui-cell>
                     <bui-cell>
                         <div slot="title" class="form-content">
-                            <text>联系电话</text>
+                            <text class="text-normal">联系电话</text>
                             <input class="form-input-text ml30" type="number" maxlength="16" placeholder="请输入联系电话" />
                         </div>
                     </bui-cell>
                     <bui-cell class="mt25">
                         <div slot="title" class="form-content">
-                            <text>驾驶人档案编号</text>
+                            <text class="text-normal">驾驶人档案编号</text>
+                            <input class="form-input-text ml30" type="number" maxlength="16" placeholder="请输入" />
+                        </div>
+                        <div slot="action" class="form-content">
+                            <bui-icon color="#1daafc"  name="ion-ios-information-outline"></bui-icon>
+                        </div>
+                    </bui-cell>
+                </scroller>
+                <div class="form-footer width750">
+                    <bui-button value="下一步" type="primary" class="form-btn form-btn-blue"></bui-button>
+                </div>
+            </div>
+
+            <div class="form-box">
+                <scroller class="form-body width750">
+                    <div class="form-title mt25"><text class="form-header-text">优惠劵兑换信息</text></div>
+                    <bui-cell>
+                        <div slot="title" class="form-content">
+                            <text class="text-grayer">优惠劵名称</text>
+                        </div>
+                        <div slot="action" class="form-content">
+                            <text class="text-normal">肥羊100元代金劵</text>
+                        </div>
+                    </bui-cell>
+                    <bui-cell>
+                        <div slot="title" class="form-content">
+                            <text class="text-grayer">金额</text>
+                        </div>
+                        <div slot="action" class="form-content">
+                            <text class="text-red">$100</text>
+                        </div>
+                    </bui-cell>
+                    <bui-cell>
+                        <div slot="title" class="form-content">
+                            <text class="text-grayer">兑换数量</text>
+                        </div>
+                        <div slot="action" class="form-content">
+                            <bui-number-input v-model="value" step=1 min="0" max=15 @change="numberChange"></bui-number-input>
+                        </div>
+                    </bui-cell>
+                    <div class="form-title"><text class="form-header-text">支付信息</text></div>
+                    <bui-cell>
+                        <div slot="title" class="form-content">
+                            <text class="text-grayer">本次扣除碳币</text>
+                        </div>
+                        <div slot="action" class="form-content">
+                            <text class="text-normal">450</text>
+                        </div>
+                    </bui-cell>
+                    <bui-cell>
+                        <div slot="title" class="form-content">
+                            <text class="text-grayer">本次扣除金额</text>
+                        </div>
+                        <div slot="action" class="form-content">
+                            <text class="text-normal">$100</text>
+                        </div>
+                    </bui-cell>
+                    <div class="form-title"><text class="form-header-text">支付方式</text></div>
+                    <bui-cell :cellStyle="larger">
+                        <div slot="title" class="form-content">
+                            <bui-icon color="#1daafc" size="100px" name="ion-social-yen"></bui-icon>
+                            <div class="ml30 flex-column column-center-left span1">
+                                <text class="text-normal">微信支付</text>
+                                <text class="text-gray-small mt10">微信安全支付</text>
+                            </div>
+                        </div>
+                        <div slot="action" class="form-content">
+                            <bui-icon color="#00cc66" name="ion-ios-checkmark-empty"></bui-icon>
+                        </div>
+                    </bui-cell>
+                    <bui-cell :cellStyle="larger">
+                        <div slot="title" class="form-content">
+                            <bui-icon color="#1daafc" size="100px" name="ion-social-yen"></bui-icon>
+                            <div class="ml30 flex-column column-center-left span1">
+                                <text class="text-normal">支付宝支付</text>
+                                <text class="text-gray-small mt10">支付宝安全支付</text>
+                            </div>
+                        </div>
+                        <div slot="action" class="form-content">
+                            <bui-icon color="#00cc66" name="ion-ios-checkmark-empty"></bui-icon>
+                        </div>
+                    </bui-cell>
+                </scroller>
+                <div class="form-footer width750">
+                    <bui-button value="下一步" type="primary" class="form-btn form-btn-blue"></bui-button>
+                </div>
+            </div>
+
+            <div class="form-box">
+                <scroller class="form-body width750">
+                    <bui-cell class="mt25">
+                        <div slot="title" class="form-content">
+                            <text class="text-normal">姓名</text>
+                            <input class="form-input-text ml30" type="text" maxlength="16" placeholder="请输入姓名" />
+                        </div>
+                    </bui-cell>
+                    <bui-cell>
+                        <div slot="title" class="form-content">
+                            <text class="text-normal">联系电话</text>
+                            <input class="form-input-text ml30" type="number" maxlength="16" placeholder="请输入联系电话" />
+                        </div>
+                    </bui-cell>
+                    <bui-cell class="mt25">
+                        <div slot="title" class="form-content">
+                            <text class="text-normal">驾驶人档案编号</text>
                             <input class="form-input-text ml30" type="number" maxlength="16" placeholder="请输入" />
                         </div>
                         <div slot="action" class="form-content">
@@ -45,13 +150,13 @@
                     <div class="form-title"><text class="form-header-text">验证手机</text></div>
                     <bui-cell>
                         <div slot="title" class="form-content">
-                            <text>手机号码</text>
+                            <text class="text-normal">手机号码</text>
                             <input class="form-input-text ml30" type="number" maxlength="16" placeholder="请输入手机号码" />
                         </div>
                     </bui-cell>
                     <bui-cell>
                         <div slot="title" class="form-content">
-                            <text>验证码</text>
+                            <text class="text-normal">验证码</text>
                             <input class="form-input-text ml30" type="number" maxlength="16" placeholder="请输入验证码" />
                         </div>
                         <div slot="action" class="form-content">
@@ -60,122 +165,15 @@
                                         :textStyle="textStyle"></bui-button>
                         </div>
                     </bui-cell>
-                    <div class="form-info"><text class="form-header-text">查询结果是您车辆的当前信息。如信息不符, 可到车管所等相关部门更改。</text></div>
+                    <div class="pd25"><text class="form-header-text">查询结果是您车辆的当前信息。如信息不符, 可到车管所等相关部门更改。</text></div>
                 </scroller>
                 <div class="form-footer width750">
                     <bui-button value="下一步" type="primary" @click="show = true" class="form-btn form-btn-blue"></bui-button>
                 </div>
             </div>
-            <div class="form-box">
-                <scroller class="form-body width750">
-                    <div class="form-title mt25"><text class="form-header-text">优惠劵兑换信息</text></div>
-                    <bui-cell>
-                        <div slot="title" class="form-content">
-                            <text class="form-text-grayer">优惠劵名称</text>
-                        </div>
-                        <div slot="action" class="form-content">
-                            <text>肥羊100元代金劵</text>
-                        </div>
-                    </bui-cell>
-                    <bui-cell>
-                        <div slot="title" class="form-content">
-                            <text class="form-text-grayer">金额</text>
-                        </div>
-                        <div slot="action" class="form-content">
-                            <text class="form-text-red">$100</text>
-                        </div>
-                    </bui-cell>
-                    <bui-cell>
-                        <div slot="title" class="form-content">
-                            <text class="form-text-grayer">兑换数量</text>
-                        </div>
-                        <div slot="action" class="form-content">
-                            <bui-number-input v-model="value" step=1 min="0" max=15 @change="numberChange"></bui-number-input>
-                        </div>
-                    </bui-cell>
-
-                    <div class="form-title"><text class="form-header-text">支付信息</text></div>
-                    <bui-cell>
-                        <div slot="title" class="form-content">
-                            <text class="form-text-grayer">本次扣除碳币</text>
-                        </div>
-                        <div slot="action" class="form-content">
-                            <text>450</text>
-                        </div>
-                    </bui-cell>
-                    <bui-cell>
-                        <div slot="title" class="form-content">
-                            <text class="form-text-grayer">本次扣除金额</text>
-                        </div>
-                        <div slot="action" class="form-content">
-                            <text class="form-text-red">$100</text>
-                        </div>
-                    </bui-cell>
-
-
-                    <div class="form-title"><text class="form-header-text">支付方式</text></div>
-                    <bui-cell :cellStyle="larger">
-                        <div slot="title" class="form-content">
-                            <bui-icon color="#1daafc" size="100px" name="ion-social-yen"></bui-icon>
-                            <div class="ml30 flex-column column-center-left span1">
-                                <text>微信支付</text>
-                                <text class="form-text-small mt10">微信安全支付</text>
-                            </div>
-                        </div>
-                        <div slot="action" class="form-content">
-                            <bui-icon color="#00cc66" name="ion-ios-checkmark-empty"></bui-icon>
-                        </div>
-                    </bui-cell>
-                    <bui-cell :cellStyle="larger">
-                        <div slot="title" class="form-content">
-                            <bui-icon color="#1daafc" size="100px" name="ion-social-yen"></bui-icon>
-                            <div class="ml30 flex-column column-center-left span1">
-                                <text>支付宝支付</text>
-                                <text class="form-text-small mt10">支付宝安全支付</text>
-                            </div>
-                        </div>
-                        <div slot="action" class="form-content">
-                            <bui-icon color="#00cc66" name="ion-ios-checkmark-empty"></bui-icon>
-                        </div>
-                    </bui-cell>
-
-
-
-
-                </scroller>
-                <div class="form-footer width750">
-                    <bui-button value="下一步" type="primary" class="form-btn form-btn-blue"></bui-button>
-                </div>
-            </div>
-            <div class="form-box">
-                <scroller class="form-body width750">
-                    <bui-cell class="mt25">
-                        <div slot="title" class="form-content">
-                            <text>姓名</text>
-                            <input class="form-input-text ml30" type="text" maxlength="16" placeholder="请输入姓名" />
-                        </div>
-                    </bui-cell>
-                    <bui-cell>
-                        <div slot="title" class="form-content">
-                            <text>联系电话</text>
-                            <input class="form-input-text ml30" type="number" maxlength="16" placeholder="请输入联系电话" />
-                        </div>
-                    </bui-cell>
-                    <bui-cell class="mt25">
-                        <div slot="title" class="form-content">
-                            <text>驾驶人档案编号</text>
-                            <input class="form-input-text ml30" type="number" maxlength="16" placeholder="请输入" />
-                        </div>
-                        <div slot="action" class="form-content">
-                            <bui-icon color="#1daafc"  name="ion-ios-information-outline"></bui-icon>
-                        </div>
-                    </bui-cell>
-                </scroller>
-                <div class="form-footer width750">
-                    <bui-button value="下一步" type="primary" class="form-btn form-btn-blue"></bui-button>
-                </div>
-            </div>
         </slider>
+
+
 
     </div>
 </template>
