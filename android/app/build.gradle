@@ -1,0 +1,71 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+    defaultConfig {
+        applicationId project.AppID
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode project.AppVersionCode as int
+        versionName project.AppVersionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters "x86"
+            abiFilters "armeabi"
+        }
+    }
+
+    configurations.all {
+        // check for updates every build
+        resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            buildConfigField "String","StartPage", "\"${StartPage}\""
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            buildConfigField "String","StartPage", "\"${StartPage}\""
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            java {
+                srcDirs = ["src/main/java"];
+            }
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.taobao.android:dexposed:0.1.8'
+    compile 'com.loopj.android:android-async-http:1.4.9@aar'
+    compile 'com.squareup.okhttp:okhttp:2.3.0'
+    compile 'com.squareup.okhttp:okhttp-ws:2.3.0'
+    compile 'com.squareup.okio:okio:1.0.1'
+    compile 'com.alibaba:fastjson:1.1.46.android'
+    compile 'com.android.support:support-v4:23.2.1'
+    compile 'com.android.support:appcompat-v7:23.2.1'
+    compile 'com.android.support:design:23.2.1'
+    compile 'com.android.support:support-annotations:23.2.1'
+    compile 'com.jakewharton.scalpel:scalpel:1.1.2'
+    compile 'com.taobao.android.weex_inspection:urlconnection_interceptor:1.0.0'
+    compile 'com.android.support.test.espresso:espresso-idling-resource:2.2.2'
+    compile 'com.taobao.android:weex_inspector:0.13.4@aar'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha9'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.taobao.android:weex_sdk:0.18.0@aar'
+    compile 'com.bingo.weex:bingo-weex:0.1.9-SNAPSHOT@aar'
+    compile 'com.bingo.weex.videocomponent:bingo-weex:0.1.0-SNAPSHOT@aar'
+    compile 'com.jzxiang.pickerview:bingo-weex:1.0.0-SNAPSHOT@aar'
+}
+

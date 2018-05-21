@@ -1,0 +1,16 @@
+source 'https://git.bingosoft.net/link-ios/BingoSoftPods.git'  #我们自己的私有spec仓库的地址
+source 'https://github.com/CocoaPods/Specs.git'  #官方仓库的地址
+
+platform :ios, '8.0'
+
+def common
+    pod 'BGWeexLib','0.3.1'
+    pod 'WeexSDK','0.17.0'
+    pod 'SDWebImage', '~>3.7'
+    pod 'WXVideoComponent','0.1.0'
+end
+
+target 'bingoweex' do
+    common
+end
+
