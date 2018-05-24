@@ -1,0 +1,16 @@
+<plist version="1.0">
+<dict>
+<key>AppID</key>
+<string>com.bingo.toapp</string>
+<key>AppName</key>
+<string>我爱我家</string>
+<key>AppVersionName</key>
+<string>2.0.0</string>
+<key>AppVersionCode</key>
+<string>1</string>
+<key>StartPage</key>
+<string>app.weex.js</string>
+<key>BuildType</key>
+<string>app-store</string>
+</dict>
+</plist>

@@ -1,0 +1,444 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		658158BF8FCE8E5D440EE836 /* libPods-bingoweex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B70D5262166C66C8874D9DB /* libPods-bingoweex.a */; };
+		F95913971F3D7DF900693560 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F95913961F3D7DF900693560 /* libz.tbd */; };
+		F95913991F3D7E0100693560 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F95913981F3D7E0100693560 /* libiconv.tbd */; };
+		F959139B1F3D7E0900693560 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F959139A1F3D7E0900693560 /* libresolv.tbd */; };
+		F987CD0B1E8D065800DDCCF3 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F987CD0A1E8D065800DDCCF3 /* libstdc++.tbd */; };
+		F987CD0D1E8D065E00DDCCF3 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F987CD0C1E8D065E00DDCCF3 /* libsqlite3.0.tbd */; };
+		F99637ED1E8CE36C00C2B551 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F99637EC1E8CE36C00C2B551 /* main.m */; };
+		F99637F01E8CE36C00C2B551 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F99637EF1E8CE36C00C2B551 /* AppDelegate.m */; };
+		F99637F61E8CE36C00C2B551 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F99637F41E8CE36C00C2B551 /* Main.storyboard */; };
+		F99637F81E8CE36C00C2B551 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F99637F71E8CE36C00C2B551 /* Assets.xcassets */; };
+		F99AA4CC1EC06BEF00357DA9 /* bundlejs in Resources */ = {isa = PBXBuildFile; fileRef = F99AA4CB1EC06BEF00357DA9 /* bundlejs */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0B70D5262166C66C8874D9DB /* libPods-bingoweex.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bingoweex.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		356B8B0E71FF3B6DA47B4E84 /* Pods-bingoweex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bingoweex.release.xcconfig"; path = "Pods/Target Support Files/Pods-bingoweex/Pods-bingoweex.release.xcconfig"; sourceTree = "<group>"; };
+		B21D48CBF993CE76382F6078 /* Pods-bingoweex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bingoweex.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bingoweex/Pods-bingoweex.debug.xcconfig"; sourceTree = "<group>"; };
+		F95913961F3D7DF900693560 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		F95913981F3D7E0100693560 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		F959139A1F3D7E0900693560 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		F987CD0A1E8D065800DDCCF3 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		F987CD0C1E8D065E00DDCCF3 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		F99637E81E8CE36C00C2B551 /* bingoweex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bingoweex.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F99637EC1E8CE36C00C2B551 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F99637EE1E8CE36C00C2B551 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F99637EF1E8CE36C00C2B551 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F99637F51E8CE36C00C2B551 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F99637F71E8CE36C00C2B551 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F99637FC1E8CE36C00C2B551 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F99AA4CB1EC06BEF00357DA9 /* bundlejs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bundlejs; sourceTree = "<group>"; };
+		F9DCC9131E8F7DA20004EA29 /* bingoweexlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = bingoweexlib.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/bingoweex-geitlenvqlvorbbwccenymycvrte/Build/Products/Debug-iphonesimulator/bingoweexlib.framework"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F99637E51E8CE36C00C2B551 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F959139B1F3D7E0900693560 /* libresolv.tbd in Frameworks */,
+				F95913991F3D7E0100693560 /* libiconv.tbd in Frameworks */,
+				F95913971F3D7DF900693560 /* libz.tbd in Frameworks */,
+				F987CD0B1E8D065800DDCCF3 /* libstdc++.tbd in Frameworks */,
+				F987CD0D1E8D065E00DDCCF3 /* libsqlite3.0.tbd in Frameworks */,
+				658158BF8FCE8E5D440EE836 /* libPods-bingoweex.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		69650DEBDA446FA5B939EA36 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F959139A1F3D7E0900693560 /* libresolv.tbd */,
+				F95913981F3D7E0100693560 /* libiconv.tbd */,
+				F95913961F3D7DF900693560 /* libz.tbd */,
+				F9DCC9131E8F7DA20004EA29 /* bingoweexlib.framework */,
+				F987CD0C1E8D065E00DDCCF3 /* libsqlite3.0.tbd */,
+				F987CD0A1E8D065800DDCCF3 /* libstdc++.tbd */,
+				0B70D5262166C66C8874D9DB /* libPods-bingoweex.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D6841EDBCCD961D8F34615CF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B21D48CBF993CE76382F6078 /* Pods-bingoweex.debug.xcconfig */,
+				356B8B0E71FF3B6DA47B4E84 /* Pods-bingoweex.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F99637DF1E8CE36C00C2B551 = {
+			isa = PBXGroup;
+			children = (
+				F99AA4CB1EC06BEF00357DA9 /* bundlejs */,
+				F99637EA1E8CE36C00C2B551 /* bingoweex */,
+				F99637E91E8CE36C00C2B551 /* Products */,
+				D6841EDBCCD961D8F34615CF /* Pods */,
+				69650DEBDA446FA5B939EA36 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F99637E91E8CE36C00C2B551 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F99637E81E8CE36C00C2B551 /* bingoweex.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F99637EA1E8CE36C00C2B551 /* bingoweex */ = {
+			isa = PBXGroup;
+			children = (
+				F99637EE1E8CE36C00C2B551 /* AppDelegate.h */,
+				F99637EF1E8CE36C00C2B551 /* AppDelegate.m */,
+				F99637F41E8CE36C00C2B551 /* Main.storyboard */,
+				F99637F71E8CE36C00C2B551 /* Assets.xcassets */,
+				F99637FC1E8CE36C00C2B551 /* Info.plist */,
+				F99637EB1E8CE36C00C2B551 /* Supporting Files */,
+			);
+			path = bingoweex;
+			sourceTree = "<group>";
+		};
+		F99637EB1E8CE36C00C2B551 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F99637EC1E8CE36C00C2B551 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F99637E71E8CE36C00C2B551 /* bingoweex */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F99637FF1E8CE36C00C2B551 /* Build configuration list for PBXNativeTarget "bingoweex" */;
+			buildPhases = (
+				E75956DEF5EC032454BB3553 /* [CP] Check Pods Manifest.lock */,
+				F99637E41E8CE36C00C2B551 /* Sources */,
+				F99637E51E8CE36C00C2B551 /* Frameworks */,
+				F99637E61E8CE36C00C2B551 /* Resources */,
+				ABA6526924CB0DF1DFA881F7 /* [CP] Embed Pods Frameworks */,
+				F56AE59570B5594917F1C569 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = bingoweex;
+			productName = bingoweex;
+			productReference = F99637E81E8CE36C00C2B551 /* bingoweex.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F99637E01E8CE36C00C2B551 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = bingosoft;
+				TargetAttributes = {
+					F99637E71E8CE36C00C2B551 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = F99637E31E8CE36C00C2B551 /* Build configuration list for PBXProject "bingoweex" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F99637DF1E8CE36C00C2B551;
+			productRefGroup = F99637E91E8CE36C00C2B551 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F99637E71E8CE36C00C2B551 /* bingoweex */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F99637E61E8CE36C00C2B551 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F99637F81E8CE36C00C2B551 /* Assets.xcassets in Resources */,
+				F99AA4CC1EC06BEF00357DA9 /* bundlejs in Resources */,
+				F99637F61E8CE36C00C2B551 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		ABA6526924CB0DF1DFA881F7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bingoweex/Pods-bingoweex-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E75956DEF5EC032454BB3553 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-bingoweex-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F56AE59570B5594917F1C569 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-bingoweex/Pods-bingoweex-resources.sh",
+				"${PODS_ROOT}/WXVideoComponent/ios-src/video_icon.bundle",
+				"${PODS_ROOT}/WeexSDK/pre-build/native-bundle-main.js",
+				"${PODS_ROOT}/WeexSDK/ios/sdk/WeexSDK/Resources/wx_load_error@3x.png",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bingoweex/Pods-bingoweex-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F99637E41E8CE36C00C2B551 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F99637F01E8CE36C00C2B551 /* AppDelegate.m in Sources */,
+				F99637ED1E8CE36C00C2B551 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F99637F41E8CE36C00C2B551 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F99637F51E8CE36C00C2B551 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F99637FD1E8CE36C00C2B551 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F99637FE1E8CE36C00C2B551 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F99638001E8CE36C00C2B551 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B21D48CBF993CE76382F6078 /* Pods-bingoweex.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"/**",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/SocketRocket\"",
+					"\"${PODS_ROOT}/Headers/Public/WeexSDK\"/**",
+				);
+				INFOPLIST_FILE = bingoweex/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bingo.weexdemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Debug;
+		};
+		F99638011E8CE36C00C2B551 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 356B8B0E71FF3B6DA47B4E84 /* Pods-bingoweex.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"/**",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/SocketRocket\"",
+					"\"${PODS_ROOT}/Headers/Public/WeexSDK\"/**",
+				);
+				INFOPLIST_FILE = bingoweex/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bingo.weexdemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F99637E31E8CE36C00C2B551 /* Build configuration list for PBXProject "bingoweex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F99637FD1E8CE36C00C2B551 /* Debug */,
+				F99637FE1E8CE36C00C2B551 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F99637FF1E8CE36C00C2B551 /* Build configuration list for PBXNativeTarget "bingoweex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F99638001E8CE36C00C2B551 /* Debug */,
+				F99638011E8CE36C00C2B551 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F99637E01E8CE36C00C2B551 /* Project object */;
+}

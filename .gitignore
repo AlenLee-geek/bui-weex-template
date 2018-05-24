@@ -7,6 +7,14 @@
 *.css.map
 *log
 **/.DS_Store
-package-lock.json
 /publish/*
 /publish.zip
+/package-lock.json
+
+*/*.iml
+*/.gradle
+*/local.properties
+*/.idea
+*/build
+
+package-lock.json
