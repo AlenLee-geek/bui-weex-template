@@ -23,7 +23,7 @@
                         <text class="text-blod-large ml15">最新活动</text>
                     </div>
                     <div class="flex-row ml30 mt35">
-                        <bui-image src="/image/pl.png" width="200px" height="150px"></bui-image>
+                        <bui-image src="/image/pl.jpg" width="200px" height="150px"></bui-image>
                         <div class="flex-column span1 ml30">
                             <text class="text-blod-large">2017年第一期品高警务云培训班</text>
                             <div class="flex-row mt15">
@@ -61,20 +61,20 @@
                 <div class="flex-row center bgwh pdb20 pdt20 mt25">
                     <div class="flex-row span1 center">
                         <div class="circle-box-150">
-                            <bui-image src="/image/pl.png" width="200px" height="150px"></bui-image>
+                            <bui-image src="/image/pl.jpg" width="200px" height="150px"></bui-image>
                         </div>
                         <text class="text-normal ml15">岗位课程</text>
                     </div>
                     <div class="flex-column span1 center">
                         <div class="flex-row center">
                             <div class="circle-box">
-                                <bui-image src="/image/pl.png" width="120px" height="90px"></bui-image>
+                                <bui-image src="/image/pl.jpg" width="120px" height="90px"></bui-image>
                             </div>
                             <text class="text-normal ml15">学习进度</text>
                         </div>
                         <div class="flex-row center mt50">
                             <div class="circle-box">
-                                <bui-image src="/image/pl.png" width="120px" height="90"></bui-image>
+                                <bui-image src="/image/pl.jpg" width="120px" height="90"></bui-image>
                             </div>
                             <text class="text-normal ml15">学习轨迹</text>
                         </div>
@@ -170,14 +170,14 @@
                 background: '#ffffff',
                 selectedBackground: '#ffffff',
                 items: [
-                    { title: '分晓产品和解决方案', img:'/image/pl.png', tag: [ '设计师', '互联网' ] },
-                    { title: '简立方技术讨论会-用户体验设计上', img:'/image/pl.png', tag: [ '设计师', '互联网' ] },
-                    { title: 'BUI入门视频教程', img:'/image/pl.png', tag: [ '设计师', '互联网' ] },
-                    { title: '分晓产品和解决方案', img:'/image/pl.png', tag: [ '设计师', '互联网' ] },
+                    { title: '分晓产品和解决方案', img:'/image/pl.jpg', tag: [ '设计师', '互联网' ] },
+                    { title: '简立方技术讨论会-用户体验设计上', img:'/image/pl.jpg', tag: [ '设计师', '互联网' ] },
+                    { title: 'BUI入门视频教程', img:'/image/pl.jpg', tag: [ '设计师', '互联网' ] },
+                    { title: '分晓产品和解决方案', img:'/image/pl.jpg', tag: [ '设计师', '互联网' ] },
                 ],
                 imageList: [
-                    '/image/slider1.png',
-                    '/image/silder2.png'
+                    '/image/slider1.jpg',
+                    '/image/silder2.jpg'
                 ],
                 showLoading: false,
             }
