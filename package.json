@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "archiver": "^2.1.0",
-    "bui-weex": "^0.2.6",
+    "bui-weex": "^0.3.1",
     "glob": "^7.1.2",
     "punycode": "^2.1.0",
     "vue": "^2.5.13",
