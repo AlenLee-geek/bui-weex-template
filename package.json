@@ -20,7 +20,7 @@
     "start": "npm run serve & npm run dev",
     "dev": "webpack --watch",
     "serve": "node build/init.js && serve -p 8686",
-    "debug": "weex-devtool",
+    "debug": "weex debug",
     "publish": "node build/publish.js"
   },
   "dependencies": {
@@ -48,7 +48,6 @@
     "serve": "^1.4.0",
     "vue-loader": "^10.0.2",
     "webpack": "^1.14.0",
-    "weex-devtool": "^0.3.8",
     "weex-loader": "^0.4.1",
     "weex-vue-loader": "^0.2.5"
   }
