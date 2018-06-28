@@ -87,6 +87,7 @@
     module.exports = {
         data () {
             return {
+                selectedValue: '',
                 leftItem: {
                     icon: 'ion-chevron-left'
                 },
