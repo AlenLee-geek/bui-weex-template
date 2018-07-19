@@ -15,12 +15,6 @@ android {
             abiFilters "armeabi"
         }
     }
-
-    configurations.all {
-        // check for updates every build
-        resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
-    }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -34,8 +28,9 @@ android {
     }
     sourceSets {
         main {
+            jniLibs.srcDir(['libs'])
             java {
-                srcDirs = ["src/main/java"];
+                srcDirs = ["src/main/java",'src/main/jniLibs/'];
             }
         }
     }
@@ -43,6 +38,10 @@ android {
         abortOnError false
     }
 
+}
+
+repositories {
+    flatDir { dirs 'libs'}
 }
 
 dependencies {
@@ -64,8 +63,6 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha9'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.taobao.android:weex_sdk:0.18.0@aar'
-    compile 'com.bingo.weex:bingo-weex:0.1.9-SNAPSHOT@aar'
-    compile 'com.bingo.weex.videocomponent:bingo-weex:0.1.0-SNAPSHOT@aar'
-    compile 'com.jzxiang.pickerview:bingo-weex:1.0.0-SNAPSHOT@aar'
+    compile(name:'bingoweexlib-0.2.2', ext:'aar')
 }
 

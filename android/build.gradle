@@ -15,10 +15,6 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-        maven{
-//            url 'https://maven.bingosoft.net/content/repositories/releases/'
-            url 'https://maven.bingosoft.net/content/repositories/snapshots/'
-        }
     }
 }
 

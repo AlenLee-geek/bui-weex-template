@@ -33,15 +33,15 @@ public class MainActivity extends AppCompatActivity implements BingoWXFragmentLi
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                fragment = new BingoWXFragment();
-                Map<String,Object> data=new HashMap<>();
-                String startPage=BuildConfig.StartPage;
-                fragment.setWXPage(Uri.parse(startPage),data);
-                fragment.setWXFragmentListener(MainActivity.this);
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.add(R.id.frame, fragment);
-                transaction.commit();
+            fragment = new BingoWXFragment();
+            Map<String,Object> data=new HashMap<>();
+            String startPage=BuildConfig.StartPage;
+            fragment.setWXPage(Uri.parse(startPage),data);
+            fragment.setWXFragmentListener(MainActivity.this);
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.add(R.id.frame, fragment);
+            transaction.commit();
             }
         },500);
 
