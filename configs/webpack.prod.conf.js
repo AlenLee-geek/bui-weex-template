@@ -119,3 +119,4 @@ const webConfig = webpackMerge(commonConfig[0], {
 });
 
 module.exports = [weexConfig, webConfig]
+

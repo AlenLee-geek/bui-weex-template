@@ -1,9 +1,21 @@
 {
-  "name": "ly-bui-weex-news",
-  "version": "1.0.0",
-  "description": "s",
-  "author": "",
-  "private": true,
+  "name": "bui-weex-template",
+  "description": "bui-weex template project",
+  "version": "1.0.7",
+  "main": "",
+  "keywords": [
+    "weex",
+    "vue"
+  ],
+  "author": "BingoSoft",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bingo-oss/bui-weex-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bingo-oss/bui-weex-template/issues"
+  },
+  "homepage": "https://github.com/bingo-oss/bui-weex-template",
   "scripts": {
     "start": "npm run serve",
     "build": "webpack --env.NODE_ENV=common",
@@ -22,10 +34,6 @@
     "pack:android": "npm run clean:android && weex build android",
     "pack:web": "npm run clean:web && npm run build:prod:web"
   },
-  "keywords": [
-    "weex"
-  ],
-  "license": "MIT",
   "dependencies": {
     "phantom-limb": "0.0.1",
     "vue": "^2.5.11",

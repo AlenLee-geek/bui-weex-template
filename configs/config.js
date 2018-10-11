@@ -11,11 +11,13 @@ const config = {
   sourceDir: 'src',
   templateDir: '.temp',
   entryFilePath: 'entry.js',
+
   // Module exclude from compile process
   excludeModuleReg: /node_modules(?!(\/|\\).*(weex).*)/,
   // Filter for entry files
   // see: https://www.npmjs.com/package/glob#glob-primer
   entryFilter: '**/*.vue',
+
   // Options for the filter
   // see: https://www.npmjs.com/package/glob#options
   entryFilterOptions: {},
@@ -28,12 +30,13 @@ const config = {
     open: true,
     watchContentBase: true,
     openPage: 'web/preview.html',
+
     watchOptions: {
       ignored: /node_modules/,
       aggregateTimeout: 300,
       poll: false
     },
-        /**
+      /**
      * Source Maps
      */
     // https://webpack.js.org/configuration/devtool/#development
@@ -70,6 +73,7 @@ const config = {
         </script>
         `
     }
+
   },
   prod: {
     env: JSON.stringify('production'),

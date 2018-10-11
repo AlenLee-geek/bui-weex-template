@@ -131,6 +131,7 @@ const getBaseConfig = () => ({
             '@': helper.resolve('src'),
             'src' : helper.resolve('src'),
             'css' : helper.resolve('src/css'),
+            "views": helper.resolve('src/views'),
         }
     },
     module: {
@@ -198,3 +199,4 @@ weexConfig.node = config.nodeConfiguration;
 
 
 module.exports = [webConfig, weexConfig];
+

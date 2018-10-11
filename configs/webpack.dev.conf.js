@@ -5,7 +5,6 @@ const chalk = require('chalk');
 const path = require('path');
 const webpack = require('webpack');
 const ip = require('ip').address();
-
 /**
  * Webpack Plugins
  */
@@ -24,7 +23,6 @@ const helper = require('./helper');
  * 具体用法参考 https://github.com/imwtr/find-free-port-sync
  */
 const port = findFreePort();
-
 /**
  * Modify the url that will open on the browser.
  * @param {Array} entry 
@@ -39,6 +37,7 @@ const postMessageToOpenPage =  (entry) => {
   }
   else {
     openpage += `?page=${entrys[0]}.js`;
+
   }
   if(entrys.length > 1) {
     openpage += `&entrys=${entrys.join('|')}`
@@ -47,6 +46,7 @@ const postMessageToOpenPage =  (entry) => {
 }
 
 const openPage = postMessageToOpenPage(commonConfig[0].entry);
+
 
 /**
  * Generate multiple entrys
@@ -60,6 +60,7 @@ const generateHtmlWebpackPlugin = (entry) => {
     return new HtmlWebpackPlugin({
       multihtmlCache: true,
       filename: name + '.html',
+
       template: helper.rootNode(`web/index.html`),
       isDevServer: true,
       chunksSortMode: 'dependency',
@@ -98,7 +99,7 @@ const devWebpackConfig = webpackMerge(commonConfig[0], {
   plugins: [
     /**
      * Plugin: webpack.DefinePlugin
-     * Description: The DefinePlugin allows you to create global constants which can be configured at compile time. 
+     * Description: The DefinePlugin allows you to create global constants which can be configured at compile time.
      *
      * See: https://webpack.js.org/plugins/define-plugin/
      */
@@ -190,3 +191,4 @@ module.exports = new Promise((resolve) => {
 
 
 })
+
