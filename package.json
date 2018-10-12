@@ -1,7 +1,7 @@
 {
   "name": "bui-weex-template",
   "description": "bui-weex template project",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "",
   "keywords": [
     "weex",
@@ -32,7 +32,8 @@
     "android": "weex run android",
     "pack:ios": "npm run clean:ios && weex build ios",
     "pack:android": "npm run clean:android && weex build android",
-    "pack:web": "npm run clean:web && npm run build:prod:web"
+    "pack:web": "npm run clean:web && npm run build:prod:web",
+    "debug": "weex debug"
   },
   "dependencies": {
     "phantom-limb": "0.0.1",
