@@ -3,7 +3,7 @@
 /config.js
 /.idea
 *.sass-cache
-*.css
+/src/css/*.css
 *.css.map
 *log
 **/.DS_Store
