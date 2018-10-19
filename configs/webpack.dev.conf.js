@@ -179,6 +179,7 @@ module.exports = new Promise((resolve) => {
     devWebpackConfig.plugins.push(new FriendlyErrorsPlugin({
         compilationSuccessInfo: {
             messages: [
+                //此处地址是给linkIDE打开浏览器使用
                 `Your application is running here:***http://${devWebpackConfig.devServer.host}:${port}/${openPage}`
             ],
         },
