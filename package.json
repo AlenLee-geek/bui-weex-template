@@ -1,7 +1,7 @@
 {
   "name": "bui-weex-template",
   "description": "bui-weex template project",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "main": "",
   "keywords": [
     "weex",
@@ -19,7 +19,7 @@
   "scripts": {
     "start": "npm run serve",
     "build": "webpack --env.NODE_ENV=common",
-    "build:prod": "webpack --env.NODE_ENV=production",
+    "build:prod": "webpack --env.NODE_ENV=production && node configs/publish.js",
     "build:prod:web": "webpack --env.NODE_ENV=release",
     "build:plugin": "webpack --env.NODE_ENV=plugin",
     "clean:web": "rimraf ./release/web",
@@ -41,6 +41,7 @@
     "weex-vue-render": "^1.0.17"
   },
   "devDependencies": {
+    "archiver": "^2.1.0",
     "autoprefixer": "^8.0.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.1",
