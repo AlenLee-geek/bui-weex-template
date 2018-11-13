@@ -11,18 +11,12 @@ const ip = require('ip').address();
 const HtmlWebpackPlugin = require('html-webpack-plugin-for-multihtml');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
-const findFreePort = require('find-free-port-sync');
+const portfinder = require('portfinder')
 
 const config = require('./config');
 const utils = require('./utils');
 const helper = require('./helper');
 
-
-/**
- * 获取闲置的端口号
- * 具体用法参考 https://github.com/imwtr/find-free-port-sync
- */
-const port = findFreePort();
 /**
  * Modify the url that will open on the browser.
  * @param {Array} entry 
@@ -141,7 +135,7 @@ const devWebpackConfig = webpackMerge(commonConfig[0], {
     compress: true,
     contentBase: config.dev.contentBase,
     host: config.dev.host,
-    port: port,
+    port: config.dev.port,
     historyApiFallback: config.dev.historyApiFallback,
     public: config.dev.public,
     open:config.dev.open,
@@ -170,25 +164,35 @@ webpack(weexConfig, (err, stats) => {
   }
 })
 
-module.exports = new Promise((resolve) => {
+module.exports = new Promise((resolve, reject) => {
 
-    // publish the new Port, necessary for e2e tests
-    devWebpackConfig.devServer.port = port
-    devWebpackConfig.devServer.public = `${ip}:${port}`
-    // Add FriendlyErrorsPlugin
-    devWebpackConfig.plugins.push(new FriendlyErrorsPlugin({
-        compilationSuccessInfo: {
-            messages: [
-                //此处地址是给linkIDE打开浏览器使用
-                `Your application is running here:***http://${devWebpackConfig.devServer.host}:${port}/${openPage}`
-            ],
-        },
-        onErrors: config.dev.notifyOnErrors
-            ? utils.createNotifierCallback()
-            : undefined
-    }))
+    portfinder.basePort = process.env.PORT || config.dev.port
+    portfinder.getPort((err, port) => {
+        if (err) {
+            reject(err)
+        } else {
+            // publish the new Port, necessary for e2e tests
+            process.env.PORT = port
+            // add port to devServer config
+            devWebpackConfig.devServer.port = port
+            devWebpackConfig.devServer.public = `${ip}:${port}`
+            // Add FriendlyErrorsPlugin
+            devWebpackConfig.plugins.push(new FriendlyErrorsPlugin({
+                compilationSuccessInfo: {
+                    messages: [
+                        `Your application is running here:***http://${devWebpackConfig.devServer.host}:${port}/${openPage}`
+                    ],
+                },
+                onErrors: config.dev.notifyOnErrors
+                    ? utils.createNotifierCallback()
+                    : undefined
+            }))
 
-    resolve(devWebpackConfig)
+            resolve(devWebpackConfig)
+
+
+        }
+    });
 
 
 })

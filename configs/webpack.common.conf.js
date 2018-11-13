@@ -6,73 +6,56 @@ const helper = require('./helper');
 const glob = require('glob');
 const copy = require('copy-webpack-plugin');
 const vueLoaderConfig = require('./vue-loader.conf');
-const vueWebTemp = helper.rootNode(config.templateDir);
+const vueWebTemp = helper.rootNode(config.templateWebDir);
+const vueWeexTemp = helper.rootNode(config.templateWeexDir);
 const hasPluginInstalled = fs.existsSync(helper.rootNode(config.pluginFilePath));
 const isWin = /^win/.test(process.platform);
 const webEntry = {};
 const weexEntry = {};
 
-// Wraping the entry file for web.
+//web端入口文件的输出
 const getWebEntryFileContent = (entryPath, vueFilePath) => {
-  let relativeVuePath = path.relative(path.join(entryPath, '../'), vueFilePath);
-  let relativeEntryPath = helper.root(config.entryFilePath);
-  let relativePluginPath = helper.rootNode(config.pluginFilePath);
-
-  let contents = '';
-  let entryContents = fs.readFileSync(relativeEntryPath).toString();
-  if (isWin) {
-    relativeVuePath = relativeVuePath.replace(/\\/g, '\\\\');
-    relativePluginPath = relativePluginPath.replace(/\\/g, '\\\\');
-  }
-  if (hasPluginInstalled) {
-    contents += `\n// If detact plugins/plugin.js is exist, import and the plugin.js\n`;
-    contents += `import plugins from '${relativePluginPath}';\n`;
-    contents += `plugins.forEach(function (plugin) {\n\tweex.install(plugin)\n});\n\n`;
-    entryContents = entryContents.replace(/weex\.init/, match => `${contents}${match}`);
-    contents = ''
-  }
-  contents += `
-const App = require('${relativeVuePath}');
-import buiweex from 'bui-weex';
-Vue.use(buiweex);
+    let relativeEntryPath = helper.root(vueFilePath.replace('./src', ''));
+    let contents = '';
+    let entryContents = fs.readFileSync(relativeEntryPath).toString();
+    let lastContents = "";
+    lastContents = `
 new Vue(Vue.util.extend({el: '#root'}, App));
 `;
-  return entryContents + contents;
-}
+    contents += `
+import Vue from 'vue'
+import weex from 'weex-vue-render'
+weex.init(Vue)
+`;
+    return contents + entryContents + lastContents;
+};
 
-// Wraping the entry file for native.
-const getNativeEntryFileContent = (entryPath, vueFilePath) => {
-  let relativeVuePath = path.relative(path.join(entryPath, '../'), vueFilePath);
-  let contents = '';
-  if (isWin) {
-    relativeVuePath = relativeVuePath.replace(/\\/g, '\\\\');
-  }
-  contents += `import App from '${relativeVuePath}'
-import buiweex from 'bui-weex';
-Vue.use(buiweex);
+//weex端入口文件的输出
+const getWeexEntryFileContent = (entryPath, vueFilePath) => {
+    let relativeEntryPath = helper.root(vueFilePath.replace('./src', ''));
+    let entryContents = fs.readFileSync(relativeEntryPath).toString();
+    let lastContents = "";
+    lastContents = `
 App.el = '#root'
 new Vue(App)
 `;
-  
-  return contents;
-}
+    return entryContents + lastContents;
+};
 
 // Retrieve entry file mappings by function recursion
 const getEntryFile = (dir) => {
-  dir = dir || config.sourceDir;
-  const enrtys = glob.sync(`${dir}/${config.entryFilter}`, config.entryFilterOptions);
-  enrtys.forEach(entry => {
-    const extname = path.extname(entry);
-    const basename = entry.replace(`${dir}/`, '').replace(extname, '');
-    const commonnameAry = basename.split("/");
-    const commonname = commonnameAry[commonnameAry.length-1];
-    const templatePathForWeb = path.join(vueWebTemp, basename + '.web.js');
-    const templatePathForNative = path.join(vueWebTemp, basename + '.js');
-    fs.outputFileSync(templatePathForWeb, getWebEntryFileContent(templatePathForWeb, entry));
-    fs.outputFileSync(templatePathForNative, getNativeEntryFileContent(templatePathForNative, entry));
-    webEntry[commonname] = templatePathForWeb;
-    weexEntry[commonname] = templatePathForNative;
-  })
+    dir = dir || config.sourceDir;
+    const entrys = glob.sync(config.entryFilePath, { 'nodir': true});
+    entrys.forEach(entry => {
+        const basename = entry.split('module/')[1];
+        const filename = basename.substr(0, basename.lastIndexOf('.'));
+        const templatePathForWeb = path.join(vueWebTemp, filename + '.web.js');
+        const templatePathForNative = path.join(vueWeexTemp, filename + '.js');
+        fs.outputFileSync(templatePathForWeb, getWebEntryFileContent(templatePathForWeb, entry));
+        fs.outputFileSync(templatePathForNative, getWeexEntryFileContent(templatePathForNative, entry));
+        webEntry[filename] = templatePathForWeb;
+        weexEntry[filename] = templatePathForNative;
+    })
 }
 
 // Generate an entry file array before writing a webpack configuration
@@ -84,21 +67,21 @@ getEntryFile();
  * Plugins for webpack configuration.
  */
 const plugins = [
-  /*
-   * Plugin: BannerPlugin
-   * Description: Adds a banner to the top of each generated chunk.
-   * See: https://webpack.js.org/plugins/banner-plugin/
-   */
-  new webpack.BannerPlugin({
-    banner: '// { "framework": "Vue"} \n',
-    raw: true,
-    exclude: 'Vue'
-  }),
-  //  文件拷贝插件,将图片和字体拷贝到dist目录
-  new copy([
-      {from: './src/image', to: "./image"},
-      {from: './node_modules/bui-weex/src/font', to: "./font"}
-  ])
+    /*
+     * Plugin: BannerPlugin
+     * Description: Adds a banner to the top of each generated chunk.
+     * See: https://webpack.js.org/plugins/banner-plugin/
+     */
+    new webpack.BannerPlugin({
+        banner: '// { "framework": "Vue"} \n',
+        raw: true,
+        exclude: 'Vue'
+    }),
+    //  文件拷贝插件,将图片和字体拷贝到dist目录
+    new copy([
+        {from: './src/image', to: "./image"},
+        {from: './node_modules/bui-weex/src/font', to: "./font"}
+    ])
 ];
 
 
@@ -124,11 +107,11 @@ const getBaseConfig = () => ({
         // webpack 2.0
         rules: [
             {
-               test: /\.js$/,
-               use: [{
-                 loader: 'babel-loader'
-               }],
-               exclude: config.excludeModuleReg
+                test: /\.js$/,
+                use: [{
+                    loader: 'babel-loader'
+                }],
+                exclude: config.excludeModuleReg
             },
             {
                 test: /\.vue(\?[^?]+)?$/,
@@ -141,6 +124,8 @@ const getBaseConfig = () => ({
 });
 
 
+
+
 // Config for compile jsbundle for web.
 const webConfig = getBaseConfig();
 webConfig.entry = Object.assign(webEntry, {
@@ -151,20 +136,20 @@ webConfig.module.rules[1].use.push(
     {
         loader: 'vue-loader',
         options: Object.assign(vueLoaderConfig({useVue: true}), {
-          /**
-           * important! should use postTransformNode to add $processStyle for
-           * inline style prefixing.
-           */
-          optimizeSSR: false,
-          compilerModules: [
-            {
-              postTransformNode: el => {
-                // to convert vnode for weex components.
-                require('weex-vue-precompiler')()(el)
-              }
-            }
-          ]
-          
+            /**
+             * important! should use postTransformNode to add $processStyle for
+             * inline style prefixing.
+             */
+            optimizeSSR: false,
+            compilerModules: [
+                {
+                    postTransformNode: el => {
+                        // to convert vnode for weex components.
+                        require('weex-vue-precompiler')()(el)
+                    }
+                }
+            ]
+
         })
     }
 );

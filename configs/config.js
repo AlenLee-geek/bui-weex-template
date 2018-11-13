@@ -8,15 +8,15 @@ const config = {
   pluginFilePath: 'plugins/plugins.js',
   // router
   // common
-  sourceDir: 'src',
-  templateDir: '.temp',
-  entryFilePath: 'entry.js',
-
-  // Module exclude from compile process
-  excludeModuleReg: /node_modules(?!(\/|\\).*(weex).*)/,
-  // Filter for entry files
-  // see: https://www.npmjs.com/package/glob#glob-primer
-  entryFilter: '**/*.vue',
+    sourceDir: 'src',
+    templateWebDir: './src/entry/web',
+    templateWeexDir: './src/entry/weex',
+    entryFilePath: './src/entry/module/**',    //入口文件
+    // Module exclude from compile process
+    excludeModuleReg: /node_modules(?!(\/|\\).*(weex).*)/,
+    // Filter for entry files
+    // see: https://www.npmjs.com/package/glob#glob-primer
+    entryFilter: '**/*.vue',
 
   // Options for the filter
   // see: https://www.npmjs.com/package/glob#options
