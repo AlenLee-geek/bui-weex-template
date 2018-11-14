@@ -18,5 +18,9 @@
 */build
 /release
 /platforms
+/src/entry/weex
+/src/entry/web
+/templates/**/weex
+/templates/**/web
 
 package-lock.json
