@@ -8,18 +8,23 @@ const copy = require('copy-webpack-plugin');
 const vueLoaderConfig = require('./vue-loader.conf');
 const vueWebTemp = helper.rootNode(config.templateWebDir);
 const vueWeexTemp = helper.rootNode(config.templateWeexDir);
+const vueWebRouter = helper.rootNode(config.routerWebDir);
+const vueWeexRouter = helper.rootNode(config.routerWeexDir);
 const hasPluginInstalled = fs.existsSync(helper.rootNode(config.pluginFilePath));
 const isWin = /^win/.test(process.platform);
 const webEntry = {};
 const weexEntry = {};
 
 //web端入口文件的输出
-const getWebEntryFileContent = (entryPath, vueFilePath) => {
+const getWebEntryFileContent = (entryPath, vueFilePath, routerB) => {
     let relativeEntryPath = helper.root(vueFilePath.replace('./src', ''));
     let contents = '';
     let entryContents = fs.readFileSync(relativeEntryPath).toString();
     let lastContents = "";
-    lastContents = `
+    lastContents = routerB ? `
+new Vue(Vue.util.extend({el: '#root', router}, App));
+router.push('/');
+` : `
 new Vue(Vue.util.extend({el: '#root'}, App));
 `;
     contents += `
@@ -31,28 +36,65 @@ weex.init(Vue)
 };
 
 //weex端入口文件的输出
-const getWeexEntryFileContent = (entryPath, vueFilePath) => {
+const getWeexEntryFileContent = (entryPath, vueFilePath, routerB) => {
     let relativeEntryPath = helper.root(vueFilePath.replace('./src', ''));
     let entryContents = fs.readFileSync(relativeEntryPath).toString();
     let lastContents = "";
-    lastContents = `
-App.el = '#root'
-new Vue(App)
+    lastContents = routerB ? `
+new Vue(Vue.util.extend({el: '#root', router}, App));
+router.push('/');
+` : `
+new Vue(Vue.util.extend({el: '#root'}, App));
 `;
     return entryContents + lastContents;
 };
+
+
+//处理router内容
+const getRouterFileContent = (source, bullean) => {
+    const dependence = `import Vue from 'vue'\n`;
+    let routerContents = fs.readFileSync(source).toString();
+    routerContents = bullean ? (dependence + routerContents) : routerContents;
+    return routerContents;
+}
+
+
+
+// Retrieve router file mappings by function recursion
+const getRouterFile = (dir) => {
+    dir = dir || config.sourceDir;
+    const entrys = glob.sync(config.routerFilePath, { 'nodir': true});
+    entrys.forEach(entry => {
+        const basename = entry.split('/');
+        console.log(entry)
+        const len = basename.length;
+        const lastname = basename[len-1];
+        const routerPathForWeb = path.join(vueWebRouter, lastname);
+        const routerPathForNative = path.join(vueWeexRouter, lastname);
+        fs.outputFileSync(routerPathForWeb, getRouterFileContent(entry, true));
+        fs.outputFileSync(routerPathForNative, getRouterFileContent(entry, false));
+    })
+}
+
+
 
 // Retrieve entry file mappings by function recursion
 const getEntryFile = (dir) => {
     dir = dir || config.sourceDir;
     const entrys = glob.sync(config.entryFilePath, { 'nodir': true});
     entrys.forEach(entry => {
-        const basename = entry.split('module/')[1];
-        const filename = basename.substr(0, basename.lastIndexOf('.'));
+        const basename = entry.split('/');
+        const len = basename.length;
+        const lastname = basename[len-1];
+        const reg = new RegExp(".router");
+        let router = false;
+        router = reg.test(lastname) ? true : false;
+        if(router) getRouterFile();
+        const filename = lastname.substr(0, lastname.lastIndexOf('.'));
         const templatePathForWeb = path.join(vueWebTemp, filename + '.web.js');
         const templatePathForNative = path.join(vueWeexTemp, filename + '.js');
-        fs.outputFileSync(templatePathForWeb, getWebEntryFileContent(templatePathForWeb, entry));
-        fs.outputFileSync(templatePathForNative, getWeexEntryFileContent(templatePathForNative, entry));
+        fs.outputFileSync(templatePathForWeb, getWebEntryFileContent(templatePathForWeb, entry, router));
+        fs.outputFileSync(templatePathForNative, getWeexEntryFileContent(templatePathForNative, entry, router));
         webEntry[filename] = templatePathForWeb;
         weexEntry[filename] = templatePathForNative;
     })
@@ -60,7 +102,6 @@ const getEntryFile = (dir) => {
 
 // Generate an entry file array before writing a webpack configuration
 getEntryFile();
-
 
 
 /**
