@@ -151,13 +151,11 @@ const getBaseConfig = () => ({
                 test: /\.js$/,
                 use: [{
                     loader: 'babel-loader'
-                }],
-                exclude: config.excludeModuleReg
+                }]
             },
             {
                 test: /\.vue(\?[^?]+)?$/,
-                use: [],
-                exclude: config.excludeModuleReg
+                use: []
             }
         ]
     },

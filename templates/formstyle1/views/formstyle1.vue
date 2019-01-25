@@ -53,7 +53,7 @@
                 <div class="flex-row">
                     <div class="span9"><text class="form-header-text">请选择下列选项</text></div>
                 </div>
-                <bui-radio-list v-model="selectedValue" @change="changeValue" :items="items"></bui-radio-list>
+                <bui-radio direction="vertical" textDirection="left" v-model="selectedValue" @change="changeValue" :items="items"></bui-radio>
             </scroller>
         </bui-popup>
     </div>

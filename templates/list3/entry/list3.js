@@ -1,4 +1,4 @@
-import App from 'src/views/app.vue'
+import App from 'src/views/list3.vue'
 import buiweex from 'bui-weex';
 Vue.use(buiweex);
 

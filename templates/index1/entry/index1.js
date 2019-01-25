@@ -1,5 +1,6 @@
-import App from 'src/views/app.vue'
+import App from 'src/views/index1.vue'
 import buiweex from 'bui-weex';
 Vue.use(buiweex);
+
 
 

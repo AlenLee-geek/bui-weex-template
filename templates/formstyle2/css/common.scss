@@ -74,22 +74,22 @@
 }
 
 .text-orange{
-  color: orange;
+  color: #FFA500;
   font-size: 25px;
 }
 .text-orange-large{
-  color: orange;
+  color: #FFA500;
   font-size: 36px;
 }
 .text-red-large{
 }
 .text-blue{
-  color: dodgerblue;
+  color: #1E90FF;
   font-size: 32px;
 }
 .text-green{
   font-size: 28px;
-  color: limegreen;
+  color: #32CD32;
 }
 .text-gray-small{
   font-size: 25px;
@@ -98,7 +98,7 @@
 
 .text-blod-large{
   font-size:32px;
-  font-weight: blod;
+  font-weight: bold;
 }
 
 .form-input-text{
@@ -145,13 +145,13 @@
 .circle-box{
     width: 90px;
     height: 90px;
-    border-radius: 100%;
+    border-radius: 90px;
     overflow: hidden;
 }
 .circle-box-150{
   width: 150px;
   height: 150px;
-  border-radius: 100%;
+  border-radius: 150px;
   overflow: hidden;
 }
 
@@ -217,7 +217,7 @@
 .dot{
   width: 1px;
   height: 1px;
-  border-radius: 100%;
+  border-radius: 7px;
   background-color: #eeeeee;
   border-width: 5px;
   border-color: #eeeeee;
@@ -235,7 +235,7 @@
 
 .text-tag{
   background-color: #eeeeee;
-  border-radius: 50%;
+  border-radius: 30px;
   font-size: 25px;
   color: #666666;
   padding-left: 15px;
