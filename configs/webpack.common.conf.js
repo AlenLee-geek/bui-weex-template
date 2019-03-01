@@ -15,7 +15,7 @@ const isWin = /^win/.test(process.platform);
 const webEntry = {};
 const weexEntry = {};
 
-//web端入口文件的输出
+//输出web端入口文件的内容
 const getWebEntryFileContent = (entryPath, vueFilePath, routerB) => {
     let relativeEntryPath = helper.root(vueFilePath.replace('./src', ''));
     let contents = '';
@@ -35,7 +35,7 @@ weex.init(Vue)
     return contents + entryContents + lastContents;
 };
 
-//weex端入口文件的输出
+//输出weex端入口文件的内容
 const getWeexEntryFileContent = (entryPath, vueFilePath, routerB) => {
     let relativeEntryPath = helper.root(vueFilePath.replace('./src', ''));
     let entryContents = fs.readFileSync(relativeEntryPath).toString();
@@ -60,7 +60,7 @@ const getRouterFileContent = (source, bullean) => {
 
 
 
-// Retrieve router file mappings by function recursion
+// 生成weex/web端对应的路由文件
 const getRouterFile = (dir) => {
     dir = dir || config.sourceDir;
     const entrys = glob.sync(config.routerFilePath, { 'nodir': true});
@@ -78,7 +78,7 @@ const getRouterFile = (dir) => {
 
 
 
-// Retrieve entry file mappings by function recursion
+// 根据入口文件生成weex/web端对应的入口文件
 const getEntryFile = (dir) => {
     dir = dir || config.sourceDir;
     const entrys = glob.sync(config.entryFilePath, { 'nodir': true});
@@ -201,7 +201,12 @@ weexConfig.output.filename = '[name].js';
 weexConfig.module.rules[1].use.push(
     {
         loader: 'weex-loader',
-        options: vueLoaderConfig({useVue: false})
+        options: Object.assign(vueLoaderConfig({useVue: false}),{
+            postcss:[
+                //让weex支持css的简写，如border,padding
+                require("postcss-weex")({env:"weex"})
+            ]
+        })
     }
 );
 weexConfig.node = config.nodeConfiguration;
