@@ -17,9 +17,8 @@ const weexEntry = {};
 
 //输出web端入口文件的内容
 const getWebEntryFileContent = (entryPath, vueFilePath, routerB) => {
-    let relativeEntryPath = helper.root(vueFilePath.replace('./src', ''));
     let contents = '';
-    let entryContents = fs.readFileSync(relativeEntryPath).toString();
+    let entryContents = fs.readFileSync(vueFilePath).toString();
     let lastContents = "";
     lastContents = routerB ? `
 new Vue(Vue.util.extend({el: '#root', router}, App));
@@ -37,8 +36,7 @@ weex.init(Vue)
 
 //输出weex端入口文件的内容
 const getWeexEntryFileContent = (entryPath, vueFilePath, routerB) => {
-    let relativeEntryPath = helper.root(vueFilePath.replace('./src', ''));
-    let entryContents = fs.readFileSync(relativeEntryPath).toString();
+    let entryContents = fs.readFileSync(vueFilePath).toString();
     let lastContents = "";
     lastContents = routerB ? `
 new Vue(Vue.util.extend({el: '#root', router}, App));
@@ -63,7 +61,7 @@ const getRouterFileContent = (source, bullean) => {
 // 生成weex/web端对应的路由文件
 const getRouterFile = (dir) => {
     dir = dir || config.sourceDir;
-    const entrys = glob.sync(config.routerFilePath, { 'nodir': true});
+    const entrys = glob.sync(`${dir}/${config.routerFilePath}`, { 'nodir': true});
     entrys.forEach(entry => {
         const basename = entry.split('/');
         console.log(entry)
@@ -81,7 +79,7 @@ const getRouterFile = (dir) => {
 // 根据入口文件生成weex/web端对应的入口文件
 const getEntryFile = (dir) => {
     dir = dir || config.sourceDir;
-    const entrys = glob.sync(config.entryFilePath, { 'nodir': true});
+    const entrys = glob.sync(`${dir}/${config.entryFilePath}`, { 'nodir': true});
     entrys.forEach(entry => {
         const basename = entry.split('/');
         const len = basename.length;
