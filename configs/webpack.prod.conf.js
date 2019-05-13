@@ -23,6 +23,17 @@ const weexConfig = webpackMerge(commonConfig[1], {
      * See: http://webpack.github.io/docs/configuration.html#plugins
      */
     plugins: [
+      /**
+       * Plugin: webpack.DefinePlugin
+       * Description: The DefinePlugin allows you to create global constants which can be configured at compile time. 
+       *
+       * See: https://webpack.js.org/plugins/define-plugin/
+       */
+      new webpack.DefinePlugin({
+        'process.env': {
+          'NODE_ENV': config.prod.env
+        }
+      }),
       /*
       * uglifyjs-webpack-plugin,与webpack-uglify-parallel使用方式类似，优势在于完全兼容webpack.optimize.UglifyJsPlugin中的配置，可以通过uglifyOptions写入，因此也做为推荐使用
       *
